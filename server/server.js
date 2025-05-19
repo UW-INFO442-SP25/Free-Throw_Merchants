@@ -16,7 +16,7 @@ try {
     // Middleware
     app.use(cors());
     app.use(bodyParser.json()); 
-    app.use(express.static(path.join(__dirname, '../client/dist')));
+    app.use(express.static(path.join(__dirname, '../client/')));
     
     // Basic routes
     app.get("/", (req, res) => {
@@ -33,7 +33,7 @@ try {
     
     // Static file fallback
     app.get(/^\/(?!api).*/, (req, res) => {
-        res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+        res.sendFile(path.join(__dirname, '../client/', 'index.html'));
     });
     
     // Error handler

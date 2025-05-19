@@ -41,9 +41,24 @@
     position: relative;
     transition: color 0.3s ease;
   }
+
+  .log-in-btn{
+    color: var(--color-green);
+    font-weight: bold;
+    border: 2px solid var(--color-green);
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
   
+
   .nav-link:hover {
     color: var(--color-green);
+  }
+
+  .log-in-btn:hover{
+    background-color: var(--color-green);
+    color: var(--color-white);
+    
   }
   
   .nav-link.active {

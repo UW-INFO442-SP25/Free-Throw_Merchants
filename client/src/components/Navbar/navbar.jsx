@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 // import { signOut } from "../../services/authService";
+import { getAuth, signOut } from "firebase/auth";
 import "./Navbar.css";
 
 // Custom hook for navigation
@@ -46,9 +47,10 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await signOut();
+      const auth = getAuth(); 
+      await signOut(auth);    
       navigate("/");
-      mobileMenu(); // Close mobile menu if open
+      mobileMenu();
     } catch (error) {
       console.error("Error logging out:", error);
     }
@@ -98,15 +100,15 @@ const Navbar = () => {
         {!currentUser ? (
           <>
             <Link
-              to="/login"
-              className={`nav-link auth-link ${location.pathname === "/login" ? "active" : ""}`}
+              to="/Log-In"
+              className={`log-in-btn nav-link auth-link ${location.pathname === "/login" ? "active" : ""}`}
               onClick={mobileMenu}
             >
               Log In
             </Link>
             
             <Link
-              to="/signup"
+              to="/Signup"
               className={`nav-link auth-link signup-link ${location.pathname === "/signup" ? "active" : ""}`}
               onClick={mobileMenu}
             >
