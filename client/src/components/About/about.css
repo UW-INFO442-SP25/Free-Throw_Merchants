@@ -1,0 +1,31 @@
+.about-container {
+    margin: 1.5rem;
+}
+
+h2 {
+    color: #4CAF50;
+    margin-top: 0rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    margin-top: 0rem;
+}
+
+iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        margin: .75rem;
+    }
+    
+    iframe {
+        width: 20rem;
+        height: 12.5rem;
+    }
+}
