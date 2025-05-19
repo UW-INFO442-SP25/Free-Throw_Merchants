@@ -29,6 +29,7 @@ export default function App() {
             <Route path='/Home' element={<Home />} />
             <Route path='/User_Profile' element={<user_profile />} />
             <Route path='/Restaurant_Profile' element={<restaurant_profile />} />
+            <Route path='About' element={<about />} />
           </Routes>
         </div>
       </Router> 
