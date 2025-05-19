@@ -1,0 +1,352 @@
+.home-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
+  
+  /* Main Section */
+  .main-section {
+    background-image: url('/public/mainfood.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 6rem 2rem;
+    position: relative;
+  }
+  
+  .main-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+  }
+  
+  .main-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .main-section h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  
+  .main-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+  
+  .main-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .primary-button {
+    background-color: #FF9F00;
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+  
+  .secondary-button {
+    background-color: transparent;
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid white;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+  
+  .primary-button:hover {
+    background-color: #e69000;
+    transform: translateY(-2px);
+  }
+  
+  .secondary-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .helped-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .avatar-group {
+    display: flex;
+  }
+  
+  .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ddd;
+    border: 2px solid white;
+    margin-left: -10px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .avatar:first-child {
+    margin-left: 0;
+  }
+  
+  /* How It Works Section */
+  .how-it-works-section {
+    padding: 5rem 2rem;
+    background-color: #FFF9E6;
+    text-align: center;
+  }
+  
+  .how-it-works-section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .section-subtitle {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+  }
+  
+  .feature-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .feature-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: left;
+  }
+  
+  .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+  }
+  
+  .search-icon {
+    background-color: #4CAF50;
+  }
+  
+  .business-icon {
+    background-color: #2196F3;
+  }
+  
+  .connect-icon {
+    background-color: #9C27B0;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .feature-list {
+    padding-left: 1.5rem;
+    margin-bottom: 0;
+  }
+  
+  .feature-list li {
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+  }
+  
+  /* Find Food Section */
+  .find-food-section {
+    padding: 5rem 2rem;
+    text-align: center;
+    background-color: #F9F9F9;
+  }
+  
+  .find-food-section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .food-map-container {
+    max-width: 800px;
+    margin: 3rem auto;
+  }
+  
+  .food-map-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin: 0 auto;
+    max-width: 400px;
+  }
+  
+  .food-map-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .map-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .map-button:hover {
+    background-color: #43a047;
+  }
+  
+  /* CTA Section */
+  .cta-section {
+    padding: 5rem 2rem;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+  }
+  
+  .cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 3rem auto;
+    flex-wrap: wrap;
+  }
+  
+  .cta-column {
+    flex: 1;
+    min-width: 300px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: left;
+  }
+  
+  .phone-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .phone-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .cta-column h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta-list {
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-list li {
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+  }
+  
+  .cta-button {
+    background-color: white;
+    color: #4CAF50;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .help-link {
+    margin-top: 3rem;
+  }
+  
+  .help-link a {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  /* Footer */
+  .home-footer {
+    padding: 2rem;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  .home-footer p {
+    margin: 0.5rem 0;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .main-section h1 {
+      font-size: 2.2rem;
+    }
+    
+    .feature-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .cta-columns {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .cta-column {
+      width: 100%;
+    }
+  }
