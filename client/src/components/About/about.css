@@ -1,22 +1,31 @@
 .about-container {
     margin: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h2 {
-    color: #4CAF50;
+.about-container h1 {
+    color: #4b7c4c;
+}
+
+.about-container h2 {
     margin-top: 0rem;
     margin-bottom: 0.5rem;
 }
 
-p {
+.about-container p {
     margin-bottom: 1.5rem;
     margin-top: 0rem;
 }
 
-iframe {
+.about-container iframe {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.about-header {
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 768px) {
@@ -24,7 +33,7 @@ iframe {
         margin: .75rem;
     }
     
-    iframe {
+    .about-container iframe {
         width: 20rem;
         height: 12.5rem;
     }
