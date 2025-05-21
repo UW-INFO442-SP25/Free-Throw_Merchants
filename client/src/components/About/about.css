@@ -1,9 +1,15 @@
 .about-container {
     margin: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.about-header {
+    display: flex;
+    justify-content: center;
 }
 
 h2 {
-    color: #4CAF50;
+    color: #4b7c4c;
     margin-top: 0rem;
     margin-bottom: 0.5rem;
 }

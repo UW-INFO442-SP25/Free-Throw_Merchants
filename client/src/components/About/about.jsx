@@ -3,7 +3,7 @@ import './about.css';
 export default function About() {
     return (
         <div class='about-container'>
-            <h1> FoodSaver: Reducing Waste, Fighting Hunger </h1>
+            <h1 class='about-header'> FoodSaver: Reducing Waste, Fighting Hunger </h1>
 
             <h2> The Problem </h2>
             <p>

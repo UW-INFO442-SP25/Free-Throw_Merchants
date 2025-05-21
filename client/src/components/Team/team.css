@@ -1,0 +1,37 @@
+.team-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 2.5rem;
+}
+
+.team-header {
+    color: #4b7c4c;
+    display: flex;
+    justify-content: center;
+}
+
+.meet-the-team-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.minds-behind-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5rem;
+
+}
+
+.photo-add {
+    width: 20rem;
+}
+
+@media (min-width: 768px) {
+    .photo-add {
+        display: block;
+    }
+
+    .meet-the-team-container {
+        flex-direction: row;
+    }
+}

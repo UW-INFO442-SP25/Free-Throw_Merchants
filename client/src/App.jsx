@@ -6,6 +6,7 @@ import user_profile from './components/User_Profile/user_profile';
 import restaurant_profile from './components/Restaurant_Profile/restaurant_profile';
 import NavBar from './components/Navbar/navbar';
 import About from './components/About/about';
+import Team from './components/Team/team';
 
 export default function App() {
 
@@ -31,6 +32,7 @@ export default function App() {
             <Route path='/User_Profile' element={<user_profile />} />
             <Route path='/Restaurant_Profile' element={<restaurant_profile />} />
             <Route path='/About' element={<About />} />
+            <Route path='/Team' element={<Team />} />
           </Routes>
         </div>
       </Router> 
