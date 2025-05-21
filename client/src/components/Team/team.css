@@ -3,10 +3,11 @@
     margin: 2.5rem;
 }
 
-.team-header {
+.team-container section h1 {
     color: #4b7c4c;
     display: flex;
     justify-content: center;
+    font-size: 2rem;
 }
 
 .meet-the-team-container {
@@ -19,19 +20,39 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 5rem;
-
+    align-items: center;
+    justify-content: space-between;
 }
 
 .photo-add {
-    width: 20rem;
+    width: 18rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .photo-add {
-        display: block;
+        width: 20rem;
     }
 
-    .meet-the-team-container {
+    .minds-behind-container {
         flex-direction: row;
+    }
+
+    .minds-behind-container div {
+        margin: 1rem;
+    }
+
+    .team-container {
+        margin: 5rem;
+    }
+}
+
+@media (min-width: 1300px) {
+    .minds-behind-container {
+        margin-left: 9rem;
+        margin-right: 9rem;
+    }
+    
+    .minds-behind-container div p {
+        font-size: 1.25rem;
     }
 }

@@ -1,11 +1,11 @@
 import './team.css';
-import Team_Photo from '../Team_Photo/team_photo';
+import Team_Photo from './Team_Photo/team_photo';
 
 export default function Team() {
     return (
         <div class='team-container'>
             <section>
-                <h1 class='team-header'> The Minds Behind FoodSaver </h1>
+                <h1> The Minds Behind FoodSaver </h1>
                 <div class='minds-behind-container'>
                     <div>
                         <p>
@@ -28,10 +28,10 @@ export default function Team() {
             </section>
 
             <section>
-                <h1 class='team-header'> Meet The Team </h1>
+                <h1> Meet The Team </h1>
                 <div class='meet-the-team-container'>
                     <Team_Photo src='../../../public/ben.jpg' name='Ben Leland' role='Developer' class='team-member'/>
-                    <Team_Photo src='../../../public/temp-team.jpg' name='Jonathan To' role='UX Designer' class='team-member' />
+                    <Team_Photo src='../../../JonHeadShot.jpeg' name='Jonathan To' role='UX Designer' class='team-member' />
                     <Team_Photo src='../../../public/temp-team.jpg' name='Karl Lee' role='Developer' class='team-member' />
                     <Team_Photo src='../../../public/temp-team.jpg' name='Amanuel Tedla' role='UX Designer' class='team-member' />
                     <Team_Photo src='../../../public/temp-team.jpg' name='Carlos Alexis Carrillo Sandoval' role='Developer' class='team-member' />
