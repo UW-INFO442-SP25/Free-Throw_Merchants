@@ -8,6 +8,8 @@ import NavBar from './components/Navbar/navbar';
 import LogInPage from './components/account/log-in-pag';
 import SignUp from './components/account/sign-up';
 import Dashboard from './components/business/dashboard';
+import About from './components/About/about';
+import Team from './components/Team/team';
 
 export default function App() {
 
@@ -35,6 +37,8 @@ export default function App() {
             <Route path='/Log-In' element={<LogInPage/>}/>
             <Route path='/Signup' element={<SignUp/>}/>
             {/* <Route path='/Dashboard' element={<Dashboard/>}/> */}
+            <Route path='/About' element={<About />} />
+            <Route path='/Team' element={<Team />} />
           </Routes>
         </div>
       </Router> 

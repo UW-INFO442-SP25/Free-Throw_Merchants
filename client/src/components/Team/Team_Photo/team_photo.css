@@ -1,0 +1,21 @@
+.team-photo-container {
+    padding: 1rem;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-photo {
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+.bio {
+    margin-top: 0;
+    margin-bottom: 0;
+}
