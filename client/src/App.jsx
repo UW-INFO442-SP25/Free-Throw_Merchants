@@ -7,6 +7,7 @@ import restaurant_profile from './components/Restaurant_Profile/restaurant_profi
 import NavBar from './components/Navbar/navbar';
 import LogInPage from './components/account/log-in-pag';
 import SignUp from './components/account/sign-up';
+import Dashboard from './components/business/dashboard';
 
 export default function App() {
 
@@ -33,6 +34,7 @@ export default function App() {
             <Route path='/Restaurant_Profile' element={<restaurant_profile />} />
             <Route path='/Log-In' element={<LogInPage/>}/>
             <Route path='/Signup' element={<SignUp/>}/>
+            {/* <Route path='/Dashboard' element={<Dashboard/>}/> */}
           </Routes>
         </div>
       </Router> 
