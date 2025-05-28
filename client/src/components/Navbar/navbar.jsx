@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
-// import { signOut } from "../../services/authService";
 import { getAuth, signOut } from "firebase/auth";
 import "./Navbar.css";
 
-// Custom hook for navigation
-export const useNavigation = () => {
+const Navbar = () => {
+  const useNavigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const mobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
   };
-  
+
   return { isMobileMenuOpen, mobileMenu };
 };
-
-const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { isMobileMenuOpen, mobileMenu } = useNavigation();
@@ -30,7 +27,7 @@ const Navbar = () => {
       "/login": "login-page",
       "/signup": "signup-page",
       "/profile": "profile-page",
-      "/dashboard": "dashboard-page",
+      "/dashboard": "dashboard",
     };
 
     document.body.classList.remove(
@@ -40,15 +37,15 @@ const Navbar = () => {
       "login-page",
       "signup-page",
       "profile-page",
-      "dashboard-page"
+      "dashboard"
     );
     document.body.classList.add(pageClasses[location.pathname] || "home-page");
   }, [location]);
 
   const handleLogout = async () => {
     try {
-      const auth = getAuth(); 
-      await signOut(auth);    
+      const auth = getAuth();
+      await signOut(auth);
       navigate("/");
       mobileMenu();
     } catch (error) {
@@ -61,17 +58,15 @@ const Navbar = () => {
       <div className="nav-bar-brand-logo">
         <Link to="/" className="nav-bar-link-logo">FOODSAVER</Link>
       </div>
-      
+
       <button className="mobile-menu-toggle" onClick={mobileMenu}>
         ☰
       </button>
 
       {isMobileMenuOpen && <div className="menu-overlay" onClick={mobileMenu}></div>}
-      
+
       <div className={`main-nav-links ${isMobileMenuOpen ? "open" : ""}`}>
         <button className="close-menu" onClick={mobileMenu}>✕</button>
-        
-        {/* Main Navigation Links */}
         <Link
           to="/"
           className={`nav-link ${location.pathname === "/" ? "active" : ""}`}
@@ -79,7 +74,17 @@ const Navbar = () => {
         >
           Home
         </Link>
-        
+
+        {isBusiness && (
+          <Link
+            to="/dashboard"
+            className={`nav-link ${location.pathname === "/dashboard" ? "active" : ""}`}
+            onClick={mobileMenu}
+          >
+            Dashboard
+          </Link>
+        )}
+
         <Link
           to="/about"
           className={`nav-link ${location.pathname === "/about" ? "active" : ""}`}
@@ -87,7 +92,7 @@ const Navbar = () => {
         >
           About
         </Link>
-        
+
         <Link
           to="/team"
           className={`nav-link ${location.pathname === "/team" ? "active" : ""}`}
@@ -95,8 +100,6 @@ const Navbar = () => {
         >
           Meet The Team
         </Link>
-
-        {/* Authentication Links */}
         {!currentUser ? (
           <>
             <Link
@@ -106,7 +109,7 @@ const Navbar = () => {
             >
               Log In
             </Link>
-            
+
             <Link
               to="/Signup"
               className={`nav-link auth-link signup-link ${location.pathname === "/signup" ? "active" : ""}`}
@@ -126,17 +129,7 @@ const Navbar = () => {
                 Profile
               </Link>
             )}
-            
-            {isBusiness && (
-              <Link
-                to="/dashboard"
-                className={`nav-link ${location.pathname === "/dashboard" ? "active" : ""}`}
-                onClick={mobileMenu}
-              >
-                Dashboard
-              </Link>
-            )}
-            
+
             <button className="nav-link logout-btn" onClick={handleLogout}>
               Log Out
             </button>

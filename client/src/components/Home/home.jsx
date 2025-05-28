@@ -27,8 +27,6 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-
-            {/* How It Works Section */}
             <section className="how-it-works-section">
                 <h2>How FoodSaver Works</h2>
                 <p className="section-subtitle">
@@ -37,7 +35,6 @@ export default function Home() {
                 </p>
 
                 <div className="feature-cards">
-                    {/* For Those Seeking Food */}
                     <div className="feature-card">
                         <div className="icon search-icon"></div>
                         <h3>For Those Seeking Food</h3>
@@ -47,8 +44,6 @@ export default function Home() {
                             <li>Pick up your food at the specified location and time</li>
                         </ol>
                     </div>
-
-                    {/* For Businesses Donating */}
                     <div className="feature-card">
                         <div className="icon business-icon"></div>
                         <h3>For Businesses Donating</h3>
@@ -58,8 +53,6 @@ export default function Home() {
                             <li>Prepare food for pickup and track your impact</li>
                         </ol>
                     </div>
-
-                    {/* How the Platform Connects */}
                     <div className="feature-card">
                         <div className="icon connect-icon"></div>
                         <h3>How the Platform Connects</h3>
@@ -71,8 +64,6 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-
-            {/* Find Food Near You Section */}
             <section className="find-food-section">
                 <h2>Find Food Near You</h2>
                 <p>Browse available food donations in the U-District area</p>
@@ -85,14 +76,11 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-
-            {/* Call to Action Section */}
             <section className="cta-section">
                 <h2>Ready to Join FoodSaver?</h2>
                 <p>Whether you need food or have food to donate, getting started is simple.</p>
 
                 <div className="cta-columns">
-                    {/* Looking for Food */}
                     <div className="cta-column">
                         <h3>Looking for Food?</h3>
                         <ol className="cta-list">
@@ -102,8 +90,6 @@ export default function Home() {
                         </ol>
                         <Link to="/find-food-now" className="cta-button find-food-button">Find Food Now</Link>
                     </div>
-
-                    {/* Got Food to Donate */}
                     <div className="cta-column">
                         <h3>Got Food to Donate?</h3>
                         <ol className="cta-list">
@@ -119,8 +105,6 @@ export default function Home() {
                     <p>Need help getting started? <a href="/contact">Contact our support team</a></p>
                 </div>
             </section>
-
-            {/* Footer */}
             <footer className="home-footer">
                 <p>© 2025 FoodSaver. All rights reserved.</p>
                 <p>FoodSaver is a project addressing UN Sustainable Development Goal 2: Zero Hunger</p>

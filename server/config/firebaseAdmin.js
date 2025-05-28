@@ -6,8 +6,9 @@ if (!admin.apps.length) {
     try {
         admin.initializeApp({
             credential: admin.credential.cert(serviceAccount),
-            databaseURL: process.env.FIREBASE_DATABASE_URL
-        });
+            databaseURL: "https://foodsaver-8678f-default-rtdb.firebaseio.com",
+});
+
         console.log('Firebase Admin initialized successfully');
     } catch (error) {
         console.error('Firebase Admin initialization error:', error);

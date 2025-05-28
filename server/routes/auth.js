@@ -3,7 +3,6 @@ const router = express.Router();
 const admin = require('../config/firebaseAdmin');
 const { authenticateUser } = require('../middleware/auth');
 
-// Test route without middleware to verify basic routing works
 router.get('/test', (req, res) => {
     return res.json({ message: 'Auth routes working!' });
 });
@@ -31,40 +30,71 @@ router.get('/check', authenticateUser, async (req, res) => {
     }
 });
 
-router.get('/profile', authenticateUser, async (req, res) => {
-    try {
-        const userRef = admin.database().ref(`users/${req.user.uid}`);
-        const snapshot = await userRef.once('value');
-        const userData = snapshot.val();
+// router.get('/profile', authenticateUser, async (req, res) => {
+//     try {
+//         const userRef = admin.database().ref(`users/${req.user.uid}`);
+//         const snapshot = await userRef.once('value');
+//         const userData = snapshot.val();
         
-        if (!userData) {
-            return res.status(404).json({ message: 'User profile not found' });
-        }
+//         if (!userData) {
+//             return res.status(404).json({ message: 'User profile not found' });
+//         }
         
-        if (userData.userType === 'consumer') {
-            return res.json({
-                name: userData.name,
-                email: req.user.email,
-                phone: userData.phone || '',
-                userType: userData.userType
-            });
-        } else if (userData.userType === 'business') {
-            return res.json({
-                businessName: userData.businessName,
-                email: req.user.email,
-                address: userData.address,
-                description: userData.description || '',
-                phone: userData.phone || '',
-                userType: userData.userType
-            });
-        }
+//         if (userData.userType === 'consumer') {
+//             return res.json({
+//                 name: userData.name,
+//                 email: req.user.email,
+//                 phone: userData.phone || '',
+//                 userType: userData.userType
+//             });
+//         } else if (userData.userType === 'business') {
+//             return res.json({
+//                 businessName: userData.businessName || "",
+//                 businessAddress: userData.businessAddress || userData.address || "",
+//                 email: req.user.email,
+//                 phone: userData.phone || "",
+//                 description: userData.description || "",
+//                 userType: userData.userType,
+//         });
+//         }
         
-        return res.status(400).json({ message: 'Invalid user type' });     
-    } catch (error) {
-        console.error('Error getting user profile:', error);
-        return res.status(500).json({ message: 'Server error' });
+//         return res.status(400).json({ message: 'Invalid user type' });     
+//     } catch (error) {
+//         console.error('Error getting user profile:', error);
+//         return res.status(500).json({ message: 'Server error' });
+//     }
+// });
+
+router.get("/profile", authenticateUser, async (req, res) => {
+  try {
+    console.log("HIT /api/auth/profile");
+    console.log("Decoded Firebase UID:", req.user?.uid);
+
+    const userRef = admin.database().ref(`users/${req.user.uid}`);
+    console.log("Fetching from:", `users/${req.user.uid}`);
+
+    const snapshot = await userRef.once("value");
+
+    if (!snapshot.exists()) {
+      console.log("No user data found");
+      return res.status(404).json({ error: "User not found" });
     }
+
+    const userData = snapshot.val();
+    console.log("Got user data:", userData);
+
+    res.json({
+      email: userData.email,
+      userType: userData.userType,
+      businessName: userData.businessName,
+      businessAddress: userData.businessAddress,
+    });
+  } catch (error) {
+    console.error("Error in /profile route:", error);
+    res.status(500).json({ error: "Server error", detail: error.message });
+  }
 });
+
 
 router.put('/profile', authenticateUser, async (req, res) => {
     try {

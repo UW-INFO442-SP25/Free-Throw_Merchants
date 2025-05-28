@@ -1,9 +1,7 @@
-// Import the functions you need from the SDKs you need
+
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import {getAuth} from "firebase/auth"
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 const firebaseConfig = {
   apiKey: "AIzaSyC19RdIeCI4caPj0PHsBSFyVy0AQQJV9eo",
@@ -15,7 +13,6 @@ const firebaseConfig = {
   databaseURL: "https://foodsaver-8678f-default-rtdb.firebaseio.com/"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
