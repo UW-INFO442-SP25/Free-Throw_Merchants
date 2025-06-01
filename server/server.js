@@ -4,18 +4,18 @@ const bodyParser = require('body-parser');
 const path = require('path');
 require('dotenv').config();
 
-try {
-    const authRoutes = require('./routes/auth');
-    console.log('Auth routes loaded successfully');
+// try {
+//     const authRoutes = require('./routes/auth');
+//     console.log('Auth routes loaded successfully');
     
-    const app = express();
+//     const app = express();
     
-    const PORT = process.env.PORT || 3000;
+//     const PORT = process.env.PORT || 3000;
     
     // Middleware
-    app.use(cors());
-    app.use(bodyParser.json()); 
-    app.use(express.static(path.join(__dirname, '../client/dist/')));
+    // app.use(cors());
+    // app.use(bodyParser.json()); 
+    // app.use(express.static(path.join(__dirname, '../client/dist/')));
     
     // Basic routes
     // app.get("/", (req, res) => {
@@ -28,35 +28,64 @@ try {
     // });
     
     // Auth routes
-    app.use('/api/auth', authRoutes);
+//     app.use('/api/auth', authRoutes);
     
-    // Static file fallback
-    app.get(/^\/(?!api).*/, (req, res) => {
-        res.sendFile(path.join(__dirname, '../client/dist/', 'index.html'));
-    });
+//     // Static file fallback
+//     app.get(/^\/(?!api).*/, (req, res) => {
+//         res.sendFile(path.join(__dirname, '../client/dist/', 'index.html'));
+//     });
     
-    // Error handler
-    app.use((err, req, res, next) => {
-        console.error('Express error handler triggered:', err.stack);
-        res.status(500).json({ message: 'Something went wrong!', error: err.message });
-    });
+//     // Error handler
+//     app.use((err, req, res, next) => {
+//         console.error('Express error handler triggered:', err.stack);
+//         res.status(500).json({ message: 'Something went wrong!', error: err.message });
+//     });
     
-    // Start server
-    app.listen(PORT, () => {
-        console.log(`Server started on port ${PORT}`);
-    });
+//     // Start server
+//     app.listen(PORT, () => {
+//         console.log(`Server started on port ${PORT}`);
+//     });
+// } catch (error) {
+//     console.error('Server initialization error:', error);
+// }
+
+// process.on('exit', (code) => {
+//   console.log(`Process exiting with code: ${code}`);
+// });
+
+// process.on('uncaughtException', (err) => {
+//   console.error('Uncaught Exception:', err);
+// });
+
+// process.on('unhandledRejection', (reason, promise) => {
+//   console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+// });
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+try {
+  const authRoutes = require('./routes/auth');
+  console.log('Auth routes loaded successfully');
+  app.use('/api/auth', authRoutes);
 } catch (error) {
-    console.error('Server initialization error:', error);
+  console.error('Failed to load auth routes:', error);
 }
 
-process.on('exit', (code) => {
-  console.log(`Process exiting with code: ${code}`);
+app.use(cors());
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '../client/dist/')));
+
+// fallback
+app.get(/^\/(?!api).*/, (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/', 'index.html'));
 });
 
-process.on('uncaughtException', (err) => {
-  console.error('Uncaught Exception:', err);
+app.use((err, req, res, next) => {
+  console.error('Express error handler triggered:', err.stack);
+  res.status(500).json({ message: 'Something went wrong!', error: err.message });
 });
 
-process.on('unhandledRejection', (reason, promise) => {
-  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
 });

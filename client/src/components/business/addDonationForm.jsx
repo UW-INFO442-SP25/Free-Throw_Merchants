@@ -74,11 +74,12 @@ const AddDonationForm = () => {
       image: uploadedImage || null,
       status: action === 'draft' ? 'draft' : 'posted',
       createdAt: new Date().toISOString(),
-      businessId: user.uid
+      businessID: user.uid
     };
 
     try {
-      const donationRef = ref(db, `donations/${user.uid}`);
+      // const donationRef = ref(db, `donations/${user.uid}`);
+      const donationRef = ref(db, "donations");
       await push(donationRef, donationData);
 
       if (action === "post") {
