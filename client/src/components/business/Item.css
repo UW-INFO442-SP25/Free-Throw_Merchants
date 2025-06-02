@@ -180,7 +180,6 @@
 }
 
 
-/* Tablet styles */
 @media (min-width: 768px) {
   .item-container {
     padding: 20px;
@@ -219,7 +218,6 @@
   }
 }
 
-/* Desktop styles */
 @media (min-width: 1024px) {
   .item-container {
     padding: 24px;

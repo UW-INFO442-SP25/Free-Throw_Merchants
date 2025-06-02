@@ -34,7 +34,7 @@ export default function Team() {
                     <Team_Photo src='../../../JonHeadShot.jpeg' name='Jonathan To' role='UX Designer' class='team-member' />
                     <Team_Photo src='../../../public/temp-team.jpg' name='Karl Lee' role='Developer' class='team-member' />
                     <Team_Photo src='../../../public/temp-team.jpg' name='Amanuel Tedla' role='UX Designer' class='team-member' />
-                    <Team_Photo src='../../../public/temp-team.jpg' name='Carlos Alexis Carrillo Sandoval' role='Developer' class='team-member' />
+                    <Team_Photo src='../../../public/Profile-Picture.jpg' name='Carlos Alexis Carrillo Sandoval' role='Developer' class='team-member' />
                 </div>
             </section>
         </div>

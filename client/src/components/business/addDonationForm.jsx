@@ -78,7 +78,6 @@ const AddDonationForm = () => {
     };
 
     try {
-      // const donationRef = ref(db, `donations/${user.uid}`);
       const donationRef = ref(db, "donations");
       await push(donationRef, donationData);
 

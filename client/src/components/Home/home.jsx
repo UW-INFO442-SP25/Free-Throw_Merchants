@@ -5,15 +5,14 @@ import './home.css';
 export default function Home() {
     return (
         <div className="home-container">
-            {/* Main Section */}
             <section className="main-section">
                 <div className="main-content">
                     <h1>Connect Excess Food with<br />Those Who Need It</h1>
                     <p>Fighting hunger and reducing waste in the U-District, one meal<br />at a time.</p>
                     
                     <div className="main-buttons">
-                        <Link to="/find-food" className="primary-button">Find Food</Link>
-                        <Link to="/donate-food" className="secondary-button">Donate Food</Link>
+                        <Link to="/donation-listings" className="primary-button">Find Food</Link>
+                        <Link to="/Signup" className="secondary-button">Donate Food</Link>
                     </div>
                     
                     <div className="helped-counter">
@@ -88,7 +87,7 @@ export default function Home() {
                             <li>Browse available food on the map</li>
                             <li>Claim and pick up your food</li>
                         </ol>
-                        <Link to="/find-food-now" className="cta-button find-food-button">Find Food Now</Link>
+                        <Link to="/donation-listings" className="cta-button find-food-button">Find Food Now</Link>
                     </div>
                     <div className="cta-column">
                         <h3>Got Food to Donate?</h3>
@@ -97,7 +96,7 @@ export default function Home() {
                             <li>List available food with a few taps</li>
                             <li>Prepare for pickup when claimed</li>
                         </ol>
-                        <Link to="/start-donating" className="cta-button donate-button">Start Donating</Link>
+                        <Link to="/Signup" className="cta-button donate-button">Start Donating</Link>
                     </div>
                 </div>
 
@@ -105,10 +104,6 @@ export default function Home() {
                     <p>Need help getting started? <a href="/contact">Contact our support team</a></p>
                 </div>
             </section>
-            <footer className="home-footer">
-                <p>© 2025 FoodSaver. All rights reserved.</p>
-                <p>FoodSaver is a project addressing UN Sustainable Development Goal 2: Zero Hunger</p>
-            </footer>
         </div>
     );
 }

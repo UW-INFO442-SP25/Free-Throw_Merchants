@@ -52,12 +52,31 @@ export default function Dashboard() {
     setLoadingDonations(false);
   }
 };
-            fetchDonations();
-          }, [currentUser]);
+ fetchDonations();
+  }, [currentUser]);
+  if (loading) {
+    return <div className="loading-container">Loading business dashboard...</div>;
+     }
 
-          if (loading) {
-            return <div className="loading-container">Loading business dashboard...</div>;
-          }
+const formatPickupWindow = (startDate, startTime, endDate, endTime) => {
+    if (!startDate || !startTime || !endDate || !endTime) return "Unavailable";
+
+    const start = new Date(`${startDate}T${startTime}`);
+    const end = new Date(`${endDate}T${endTime}`);
+
+    const options = {
+      month: "2-digit",
+      day: "2-digit",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    };
+
+    return `${start.toLocaleString("en-US", options)} until ${end.toLocaleString("en-US", options)}`;
+  };
+
+
 
   return (
     <div className="dashboard-container">
@@ -95,7 +114,7 @@ export default function Dashboard() {
                   name={donation.foodName}
                   description={donation.description}
                   quantity={donation.quantity}
-                  pickupWindow={`${donation.pickupStartTime} – ${donation.pickupEndTime}`}
+                  pickupWindow={formatPickupWindow(donation.pickupStartDate, donation.pickupStartTime, donation.pickupEndDate, donation.pickupEndTime)}
                   status={donation.status}
                   onEdit={() => console.log("Edit", donation)}  
                   onArchive={() => console.log("Archive", donation)} 
