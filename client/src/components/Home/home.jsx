@@ -12,7 +12,7 @@ export default function Home() {
                     
                     <div className="main-buttons">
                         <Link to="/donation-listings" className="primary-button">Find Food</Link>
-                        <Link to="/Signup" className="secondary-button">Donate Food</Link>
+                        <Link to="/signup" className="secondary-button">Donate Food</Link>
                     </div>
                     
                     <div className="helped-counter">
@@ -96,7 +96,7 @@ export default function Home() {
                             <li>List available food with a few taps</li>
                             <li>Prepare for pickup when claimed</li>
                         </ol>
-                        <Link to="/Signup" className="cta-button donate-button">Start Donating</Link>
+                        <Link to="/signup" className="cta-button donate-button">Start Donating</Link>
                     </div>
                 </div>
 

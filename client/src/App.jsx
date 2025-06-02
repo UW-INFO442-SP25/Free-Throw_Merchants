@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, BrowserRouter} from "react-router-dom";
 import { useEffect, useState } from 'react';
 import Home from './components/Home/home';
 import NavBar from './components/Navbar/navbar';
@@ -18,24 +18,23 @@ export default function App() {
 
 
   return (
-      <Router>
+      <BrowserRouter basename='/Free-Throw_Merchants/'>
         <div>
           <NavBar/>
           <Routes>
             <Route path='/' element={<Home/>}/>
-            <Route path='/Home' element={<Home />} />
             <Route path='/add-donation' element={<AddDonationForm/>}/>
-            <Route path='/Log-In' element={<LogInPage/>}/>
-            <Route path='/Signup' element={<SignUp/>}/>
-            <Route path='/Dashboard' element={<Dashboard/>}/>
-            <Route path='/About' element={<About />} />
-            <Route path='/Team' element={<Team />} />
+            <Route path='/log-in' element={<LogInPage/>}/>
+            <Route path='/signup' element={<SignUp/>}/>
+            <Route path='/dashboard' element={<Dashboard/>}/>
+            <Route path='/about' element={<About />} />
+            <Route path='/team' element={<Team />} />
             <Route path='/donation-listings' element={<DonationsList/>}/>
             <Route path='/profile' element={<UserProfile/>}/>
           </Routes>
           <Footer/>
         </div>
-      </Router> 
+      </BrowserRouter> 
   );
 };
 

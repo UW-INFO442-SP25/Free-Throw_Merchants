@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebaseConfig"; // your existing config
+import { ref, get } from "firebase/database";
+import { auth, db } from "../firebaseConfig";
 
 const AuthContext = createContext();
 
@@ -14,54 +15,47 @@ export function AuthProvider({ children }) {
   const isBusiness = userData?.userType === "business";
   const isConsumer = userData?.userType === "consumer";
 
-
   useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, async (user) => {
-    setCurrentUser(user);
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      setCurrentUser(user);
 
-    if (user) {
-      try {
-        const token = await user.getIdToken();
-        const res = await fetch("/api/auth/profile", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        if (!res.ok) {
-          throw new Error("Failed to fetch profile");
+      if (user) {
+        try {
+          const snapshot = await get(ref(db, `users/${user.uid}`));
+          if (snapshot.exists()) {
+            setUserData(snapshot.val());
+          } else {
+            console.warn("User profile not found in Firebase");
+            setUserData(null);
+          }
+        } catch (err) {
+          console.error("Error loading user data from Firebase:", err);
+          setUserData(null);
+        } finally {
+          setLoading(false);
         }
-
-        const data = await res.json();
-        setUserData(data);
-      } catch (err) {
-        console.error("Error loading user data:", err);
+      } else {
         setUserData(null);
-      } finally {
         setLoading(false);
       }
-    } else {
-      setUserData(null);
-      setLoading(false);
-    }
-  });
+    });
 
-  return () => unsubscribe();
-}, []);
-
+    return () => unsubscribe();
+  }, []);
 
   const value = {
     currentUser,
     userData,
-    loading,
     isBusiness,
-    isConsumer 
+    isConsumer,
+    loading
   };
 
   return (
     <AuthContext.Provider value={value}>
-      {children}
+      {!loading && children}
     </AuthContext.Provider>
   );
 }
+
 

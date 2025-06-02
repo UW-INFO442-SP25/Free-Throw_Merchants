@@ -17,7 +17,10 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { isMobileMenuOpen, mobileMenu } = useNavigation();
-  const { currentUser, isConsumer, isBusiness } = useAuth();
+  const { currentUser, isConsumer, isBusiness, loading } = useAuth();
+
+
+
 
   useEffect(() => {
     const pageClasses = {
@@ -75,7 +78,7 @@ const Navbar = () => {
           Home
         </Link>
 
-        {isBusiness && (
+        {!loading && isBusiness && (
           <Link
             to="/dashboard"
             className={`nav-link ${location.pathname === "/dashboard" ? "active" : ""}`}
@@ -120,7 +123,7 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            {isConsumer && (
+            {!loading && isConsumer && (
               <Link
                 to="/profile"
                 className={`nav-link ${location.pathname === "/profile" ? "active" : ""}`}
